@@ -8,6 +8,8 @@ import {
   Code
 } from 'lucide-react';
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://https://ee-wl-be.vercel.app';
+
 const Hero = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -26,15 +28,16 @@ const Hero = () => {
     setSuccess(false);
 
     try {
-      const response = await fetch("http://localhost:3000/api/waitlist", {
+      console.log('Sending request to:', BACKEND_URL);
+      const response = await fetch(`${BACKEND_URL}/api/waitlist`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: JSON.stringify({ email }),
-        credentials: 'include' // Include credentials if you're using sessions
+        body: JSON.stringify({ email })
       });
+
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
