@@ -10,6 +10,7 @@ import {
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://ee-wl-be.vercel.app/api/waitlist';
 
+
 const Hero = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
