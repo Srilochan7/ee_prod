@@ -130,7 +130,7 @@ const Hero = () => {
 
               {/* Waitlist Section - Mobile Optimized */}
               <div className="max-w-2xl mx-auto mt-15">
-      <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 md:p-10 shadow-xl">
+      <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 md:p-10 shadow-2xl transition-shadow duration-300 ease-in-out">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Waitlist</h2>
         <p className="text-gray-600 text-base md:text-lg mb-8">
           Sign up to be the first to know when we launch.
