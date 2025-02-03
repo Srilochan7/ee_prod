@@ -8,7 +8,7 @@ import {
   Code
 } from 'lucide-react';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://https://ee-wl-be.vercel.app';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://ee-wl-be.vercel.app/api/waitlist';
 
 const Hero = () => {
   const [email, setEmail] = useState('');
