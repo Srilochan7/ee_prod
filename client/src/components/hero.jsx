@@ -1,35 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
-  Search, 
-  Calendar, 
-  Star, 
-  Users, 
-  BookOpen, 
-  Code, 
-  FileCheck, 
-  ChevronRight, 
-  ArrowRight, 
-  Lightbulb, 
-  BarChart, 
-  MessageCircle, 
-  BookMarked, 
-  Target, 
-  Coffee,
   GraduationCap,
   Brain,
   Trophy,
   Layout,
   PenTool,
-  Monitor,
-  UserCheck,
-  Laptop,
-  Clock,
-  CheckCircle,
-  Search as SearchIcon,
-  Users as UsersIcon
+  Code
 } from 'lucide-react';
 
 const Hero = () => {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) {
+      setError("Please enter an email address.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+    setSuccess(false);
+
+    try {
+      const response = await fetch("http://localhost:3000/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({ email }),
+        credentials: 'include' // Include credentials if you're using sessions
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSuccess(true);
+        setEmail(''); // Clear the input on success
+      } else {
+        throw new Error(result.error || "Failed to join waitlist");
+      }
+    } catch (err) {
+      setError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id='section1'>
       <div className="min-h-screen bg-gray-50">
@@ -102,31 +127,48 @@ const Hero = () => {
 
               {/* Waitlist Section - Mobile Optimized */}
               <div className="max-w-2xl mx-auto mt-15">
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 md:p-10 shadow-xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Waitlist</h2>
-                <p className="text-gray-600 text-base md:text-lg mb-8">
-                  Sign up to be the first to know when we launch. We'll notify you as soon as we're ready to go live. (For both Mentors & Learners)
-                </p>
-                <div className="flex flex-col md:flex-row gap-3 max-w-xl mx-auto">
-                  <input 
-                    type="email" 
-                    placeholder="Enter your email"
-                    className="flex-1 px-6 py-4 rounded-full bg-black/80 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-<button className="relative inline-flex overflow-hidden rounded-full bg-white px-8 py-3 
-                  text-base font-medium text-black shadow-lg 
-                  transition-all duration-300 ease-in-out
-                  hover:text-white
-                  before:absolute before:inset-0 
-                  before:z-0 before:translate-x-[-100%] before:bg-gray-900
-                  before:transition-transform before:duration-300 before:ease-in-out
-                  hover:before:translate-x-0">
- <span className="relative z-10">Join Waitlist</span>
-</button>
-      
-                </div>
-              </div>
-            </div>
+      <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 md:p-10 shadow-xl">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Waitlist</h2>
+        <p className="text-gray-600 text-base md:text-lg mb-8">
+          Sign up to be the first to know when we launch.
+        </p>
+        <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-3 max-w-xl mx-auto">
+          <input 
+            type="email" 
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="flex-1 px-6 py-4 rounded-full bg-black/80 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            disabled={loading}
+          />
+          <button 
+            type="submit"
+            className="relative inline-flex overflow-hidden rounded-full bg-white px-8 py-3 
+              text-base font-medium text-black shadow-lg 
+              transition-all duration-300 ease-in-out
+              hover:text-white
+              disabled:opacity-50 disabled:cursor-not-allowed
+              before:absolute before:inset-0 
+              before:z-0 before:translate-x-[-100%] before:bg-gray-900
+              before:transition-transform before:duration-300 before:ease-in-out
+              hover:before:translate-x-0"
+            disabled={loading}
+          >
+            <span className="relative z-10">
+              {loading ? "Processing..." : "Join Waitlist"}
+            </span>
+          </button>
+        </form>
+        {error && (
+          <p className="text-red-500 text-sm mt-2">{error}</p>
+        )}
+        {success && (
+          <p className="text-green-500 text-sm mt-2">
+            Successfully joined the waitlist! We'll be in touch soon.
+          </p>
+        )}
+      </div>
+    </div>
             </div>
           </div>
         </section>
