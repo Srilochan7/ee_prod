@@ -7,8 +7,7 @@ import {
   PenTool,
   Code
 } from 'lucide-react';
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://ee-wl-be.vercel.app';
+import axios from 'axios';
 
 
 const Hero = () => {
@@ -19,45 +18,24 @@ const Hero = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email) {
-      setError("Please enter an email address.");
-      return;
-    }
-
     setLoading(true);
     setError(null);
     setSuccess(false);
 
     try {
-      console.log('Sending request to:', BACKEND_URL);
-      const response = await fetch(`${BACKEND_URL}/api/waitlist`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({ email })
-      });
-
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json();
-
-      if (result.success) {
+      const response = await axios.post('http://localhost:5000/api/waitlist/', { email });
+      
+      if (response.data.success) {
         setSuccess(true);
-        setEmail(''); // Clear the input on success
-      } else {
-        throw new Error(result.error || "Failed to join waitlist");
+        setEmail('');
       }
     } catch (err) {
-      setError(err.message || "Something went wrong. Please try again.");
+      setError(err.response?.data?.error || 'An unexpected error occurred');
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <section id='section1'>
@@ -163,14 +141,8 @@ const Hero = () => {
             </span>
           </button>
         </form>
-        {error && (
-          <p className="text-red-500 text-sm mt-2">{error}</p>
-        )}
-        {success && (
-          <p className="text-green-500 text-sm mt-2">
-            Successfully joined the waitlist! We'll be in touch soon.
-          </p>
-        )}
+        {error && <p className="text-red-500 mt-2">{error}</p>}
+        {success && <p className="text-green-500 mt-2">Successfully added to waitlist!</p>}
       </div>
     </div>
             </div>
