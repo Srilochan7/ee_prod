@@ -23,7 +23,7 @@ const Hero = () => {
     setSuccess(false);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/waitlist/', { email });
+      const response = await axios.post('https://expert-ease-b.vercel.app/api/waitlist/', { email });
       
       if (response.data.success) {
         setSuccess(true);
