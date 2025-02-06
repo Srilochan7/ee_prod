@@ -11,12 +11,12 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div>
       <Navbar/>
       <Hero/>
       <What/>
       <Footer/>
-    </>
+    </div>
   )
 }
 

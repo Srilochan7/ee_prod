@@ -40,7 +40,7 @@ const What = () => {
 
   return (
     <section id="section5" className="relative overflow-hidden">
-      <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-white px-4 py-16 md:py-5">
+      <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-gray-400 to-white px-4 py-16 md:py-5">
         <div className="max-w-7xl w-full">
           {/* Background decorative elements */}
           <div className="absolute top-0 left-0 w-64 h-64 bg-blue-50 rounded-full filter blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2" />
@@ -65,7 +65,7 @@ const What = () => {
               {features.map((feature, index) => (
                 <div 
                   key={index}
-                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="group bg-white border-t-2 border-slate-200 rounded-2xl p-6 shadow-xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="flex flex-col items-center">
                     <div className={`w-16 h-16 ${feature.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
