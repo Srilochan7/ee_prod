@@ -14,11 +14,11 @@ function App() {
   return (
 
     <div>
-      <Analytics/>
       <Navbar/>
       <Hero/>
       <What/>
       <Footer/>
+      <Analytics/>
     </div>
   )
 }
