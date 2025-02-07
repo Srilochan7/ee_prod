@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Analytics } from "@vercel/analytics/react"
 import './App.css'
 import Navbar from './components/navbar'
 import Hero from './components/hero'
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+    <Analytics/>
       <Navbar/>
       <Hero/>
       <What/>
