@@ -117,7 +117,7 @@ const Hero = () => {
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-xl sm:shadow-2xl transition-shadow duration-300 ease-in-out">
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">Join Our Waitlist</h2>
                   <p className="text-gray-600 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 md:mb-8">
-                    Sign up to be the first to know when we launch.
+                    Sign up to be the first to know when we launch. <br/>(For both mentors and learners)
                   </p>
                   <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 sm:gap-3 max-w-xl mx-auto">
                     <input
