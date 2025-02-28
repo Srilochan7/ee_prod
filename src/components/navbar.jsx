@@ -1,99 +1,110 @@
 import React, { useState } from 'react';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Function to handle smooth scrolling
-  const scrollToSection = (elementId) => {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-    setIsMenuOpen(false); // Close menu after clicking
-  };
-
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 h-15">
-      <style>
-        {`
-          @keyframes slideDown {
-            from {
-              opacity: 0;
-              transform: translateY(-10px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          
-          .menu-animation {
-            animation: slideDown 0.3s ease forwards;
-          }
-        `}
-      </style>
+    <nav className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
 
-      <div className="container mx-auto px-4 md:px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="text-xl md:text-2xl font-bold text-gray-900">ExpertEase</div>
+      <div className="container mx-auto px-4 py-3 flex items-center justify-center space-x-18">
+        {/* Logo */}
+        <div className="flex items-center">
+        <div className="w-13 h-13">
+  <img src="/f.png" alt="icon" className="w-full h-full" />
+</div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            <button
-              onClick={() => scrollToSection('section1')}
-              className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
-            >
-              Join Waitlist
-            </button>
-            <button
-              onClick={() => scrollToSection('section5')}
-              className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
-            >
+          <div className="text-black-600 text-2xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold tracking-tight">ExpertEase</div>
+        </div>
+
+        {/* Desktop Navigation */} 
+        <div className="hidden md:flex items-center space-x-6">
+          <div className="relative group">
+            <button className="flex items-center text-gray-800 hover:text-black">
               Features
+              
             </button>
           </div>
+          
+          <div className="relative group">
+            <button className="flex items-center text-gray-800 hover:text-black">
+              Mission
+              {/* <ChevronDown className="ml-1 w-4 h-4" /> */}
+            </button>
+          </div>
+          
+          <button className="text-gray-800 hover:text-black">
+            About
+          </button>
+          
+          <button className="text-gray-800 hover:text-black">
+            Resources
+          </button>
+          
+          {/* <div className="relative group">
+            <button className="flex items-center text-gray-800 hover:text-black"> */}
+              {/* Resources */}
+              {/* <ChevronDown className="ml-1 w-4 h-4" /> */}
+            {/* </button> */}
+          {/* </div> */}
+        </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6 text-gray-600" />
-            ) : (
-              <Menu className="w-6 h-6 text-gray-600" />
-            )}
+        {/* Auth Buttons */}
+        <div className="hidden md:flex items-center space-x-3">
+          <button className="text-gray-600 hover:text-gray-800 px-3 py-2">
+            Login
+          </button>
+          <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full transition duration-150">
+            Sign up
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white menu-animation shadow-sm">
-            <div className="container mx-auto">
-              <div className="py-2">
-                <button
-                  onClick={() => scrollToSection('section1')}
-                  className="block w-full text-left px-4 py-3 text-gray-600 hover:bg-gray-50 transition-colors duration-200"
-                >
-                  Join Waitlist
-                </button>
-                <button
-                  onClick={() => scrollToSection('section2')}
-                  className="block w-full text-left px-4 py-3 text-gray-600 hover:bg-gray-50 transition-colors duration-200"
-                >
-                  Features
-                </button>
-              </div>
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 focus:outline-none"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden py-3 px-4 border-t border-gray-100">
+          <div className="flex flex-col space-y-3">
+            <button className="flex items-center justify-between text-gray-800 py-2">
+              Apps
+              <ChevronDown className="w-4 h-4" />
+            </button>
+            <button className="flex items-center justify-between text-gray-800 py-2">
+              Courses
+              <ChevronDown className="w-4 h-4" />
+            </button>
+            <button className="text-gray-800 py-2">
+              Tutoring
+            </button>
+            <button className="text-gray-800 py-2">
+              For schools
+            </button>
+            <button className="flex items-center justify-between text-gray-800 py-2">
+              Resources
+              <ChevronDown className="w-4 h-4" />
+            </button>
+            <div className="flex flex-col pt-3 border-t border-gray-100">
+              <button className="text-gray-600 py-2">
+                Login
+              </button>
+              <button className="bg-blue-500 text-white py-2 px-4 rounded-full mt-2">
+                Sign up
+              </button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   );
 };
