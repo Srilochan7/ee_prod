@@ -76,24 +76,23 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden py-3 px-4 border-t border-gray-100">
           <div className="flex flex-col space-y-3">
-            <button className="flex items-center justify-between text-gray-800 py-2">
-              Apps
-              <ChevronDown className="w-4 h-4" />
+            <button className="text-gray-800 py-2">
+              Features
+          
             </button>
-            <button className="flex items-center justify-between text-gray-800 py-2">
-              Courses
-              <ChevronDown className="w-4 h-4" />
+            <button className=" text-gray-800 py-2">
+          Mission
             </button>
             <button className="text-gray-800 py-2">
-              Tutoring
+              About
             </button>
             <button className="text-gray-800 py-2">
-              For schools
+              Resources
             </button>
-            <button className="flex items-center justify-between text-gray-800 py-2">
+            {/* <button className="flex items-center justify-between text-gray-800 py-2">
               Resources
               <ChevronDown className="w-4 h-4" />
-            </button>
+            </button> */}
             <div className="flex flex-col pt-3 border-t border-gray-100">
               <button className="text-gray-600 py-2">
                 Login

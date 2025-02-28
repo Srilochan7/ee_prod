@@ -12,7 +12,7 @@ import axios from 'axios';
 
 const Hero = () => {
   return (
-    <section id="section1" className="mt-12 min-h-screen ">
+    <section id="section1" className="mt-12 min-h-screen bg-white">
 
       <div className="mb-12 bg-gray-500 ">
         <style>
@@ -33,9 +33,8 @@ const Hero = () => {
             }
           `}
         </style>
-        <section className="min-h-screen relative bg-gradient-to-b from-gray-50 to-white pb-1">
           {/* Grid Pattern - More responsive */}
-          <div className="absolute inset-0 w-full h-full">
+          <div className="absolute inset-0 w-full h-full bg-white">
   <div className="absolute w-full h-full bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] sm:bg-[size:2rem_2rem] md:bg-[size:4rem_4rem] opacity-50"></div>
 </div>
 
@@ -130,7 +129,6 @@ const Hero = () => {
           {/* New Element: Decorative Background Elements */}
           
           
-        </section>
       </div>
     </section>
   );

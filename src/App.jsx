@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
 import './App.css'
-import Navbar from './components/navbar'
-import Hero from './components/hero'
-import Features from './components/features'
-import Footer from './components/footer'
-import What from './components/what'
+import Navbar from './comp/components/navbar'
+import Hero from './comp/components/hero'
+import Features from './comp/pages/features'
+import Footer from './comp/components/footer'
+import Scroll from './comp/pages/scroll'
 
 
 function App() {
@@ -15,7 +15,9 @@ function App() {
     <div>
       <Navbar/>
       <Hero/>
-      <What/>
+      <Scroll/>
+      
+      <Features/>
       <Footer/>
 
     </div>
