@@ -8,7 +8,7 @@ import {
 
 const Features = () => {
   return (
-    <section id='section2' className="bg-gradient-to-b from-gray-50 to-white py-12 px-4 md:px-0">
+    <section id='features' className="bg-gradient-to-b from-gray-50 to-white py-12 px-4 md:px-0">
       <div className="container mx-auto max-w-5xl text-center">
         <h2 className="text-4xl font-bold text-gray-900 mb-6">Features</h2>
         <p className="text-gray-600 text-lg mb-12">

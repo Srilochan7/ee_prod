@@ -8,6 +8,7 @@ import Footer from './comp/components/footer'
 import Scroll from './comp/pages/scroll'
 import Mission from './comp/pages/mission'
 import Resources from './comp/pages/resources'
+import About from './comp/pages/about'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       
       <What/>
       <Mission/>
+      <About/>
       <Resources/>
       <Footer/>
 

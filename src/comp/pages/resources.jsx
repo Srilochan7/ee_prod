@@ -8,43 +8,43 @@ const Resources = () => {
   const faqs = [
     {
       id: 1,
-      question: "What is a tutor pass?",
-      answer: "A tutor pass is a subscription that gives you access to our qualified IB tutors at a fixed rate of $29/hour. Unlike traditional tutoring services, we don't charge per session but offer unlimited access within your subscription period."
+      question: "How can I become a mentor?",
+      answer: "You can become a mentor through a simple onboarding process where you provide details about your skills, experience, and expertise."
     },
     {
       id: 2,
-      question: "How is RevisionDojo tutoring different?",
-      answer: "RevisionDojo offers a unique approach where we take 0% commission from tutors, allowing them to earn more while keeping costs low for students. We also provide specialized IB curriculum tutoring with verified elite tutors who have excelled in the IB program."
+      question: " How do we validate mentor prices?",
+      answer: "We have three tiers of mentors, each with its own price range based on experience, expertise, and demand."
     },
     {
       id: 3,
-      question: "How long is one session?",
-      answer: "Each tutoring session is 55 minutes long, giving students comprehensive help while allowing tutors a short break between sessions. This format has proven most effective for maintaining student engagement and learning retention."
+      question: "How can I find the right mentor?",
+      answer: "You can browse through all the available mentors and choose one based on their skills, experience, and reviews before booking an appointment."
     },
     {
       id: 4,
-      question: "How can I book my free trial session?",
-      answer: "You can book your free 30-minute trial session by clicking the 'Find my tutor' button on our homepage, selecting a subject, and choosing a convenient time slot. No payment information is required for the trial."
+      question: "What are the key features of the platform?",
+      answer: "The main features include mock interviews, resume reviews, personal tracking, doubt-solving, and project collaboration."
     },
     {
       id: 5,
-      question: "What is the price of one session?",
-      answer: "Individual sessions cost $29/hour with our subscription model. We also offer package discounts for students who commit to regular tutoring sessions."
+      question: "How is this platform different from existing mentorship platforms?",
+      answer: "This platform offers more features, a unique monetization model, and a structured approach to connecting students with mentors."
     },
     {
       id: 6,
-      question: "What subjects do you offer?",
-      answer: "We offer tutoring across all IB subjects including Mathematics (AA/AI), Sciences (Biology, Chemistry, Physics), Languages (English, Spanish, French), Humanities (History, Geography, Economics), and specialized support for TOK and Extended Essay."
+      question: "How do mentors earn money on this platform?",
+      answer: "Mentors can set their prices based on their tier, and they earn by conducting one-on-one sessions, workshops, and project collaborations."
     },
     {
       id: 7,
-      question: "How does flexible tutoring work?",
-      answer: "Our flexible tutoring allows you to schedule sessions at times that work for you. You can book, reschedule, or cancel sessions through our platform with a simple calendar interface. Sessions can be conducted online via our integrated video platform."
+      question: "Is there a way to track my progress with a mentor?",
+      answer: "Yes, the platform includes a personal tracking feature where students can monitor their learning journey, set goals, and receive feedback."
     },
     {
       id: 8,
-      question: "What happens if I need to cancel or re-schedule a session?",
-      answer: "You can cancel or reschedule any session up to 24 hours before the scheduled time at no cost. Cancellations with less than 24 hours' notice may incur a fee of 50% of the session cost. Emergency situations are handled on a case-by-case basis."
+      question: "Can I get a refund if I am not satisfied with a session?",
+      answer: "The refund policy is structured to ensure fairness for both mentors and students. However, we are not revealing the full details at this stage."
     }
   ];
 
@@ -55,7 +55,7 @@ const Resources = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-4xl font-bold text-center mb-12">FAQs</h1>
+      <h1 className="text-6xl font-bold text-center mb-15">FAQs</h1>
       
       <div className="bg-gray-50 rounded-lg">
         {faqs.map((faq) => (

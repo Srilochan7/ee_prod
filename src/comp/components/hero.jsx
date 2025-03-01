@@ -56,7 +56,7 @@ const Hero = () => {
             <div className="absolute top-[40px] right-2 sm:top-12 sm:right-4 md:top-24 md:right-16 w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16 bg-purple-100 rounded-lg flex items-center justify-center animate-float-delayed">
               <Layout className="w-4 h-4 sm:w-5 sm:h-5 md:w-8 md:h-8 text-purple-600" />
             </div>
-            <div className="absolute top-24 right-1/16 sm:top-40 md:top-70 md:right-1/4 w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 bg-indigo-100 rounded-lg flex items-center justify-center animate-float">
+            <div className="absolute top-24 right-1/16 sm:top-80 md:top-100 md:right-1/4 w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 bg-indigo-100 rounded-lg flex items-center justify-center animate-float">
               <Code className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 text-indigo-600" />
             </div>
             <div className="hidden sm:flex absolute bottom-32 right-12 sm:bottom-40 sm:right-20 w-10 h-10 sm:w-14 sm:h-14 bg-red-100 rounded-lg items-center justify-center animate-float-delayed">

@@ -20,19 +20,11 @@ const Mission = () => {
         Our team struggled to find quality mentorship and career guidance, which inspired us to create <span className="text-indigo-600 font-medium">ExpertEase</span> We aim to connect learners with mentors for real-time support, bridging the gap and providing equal opportunities for growth and success.
         </p>
         
-        {/* <div className="flex gap-4 pt-4">
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-full transition">
-            Find my tutor
-          </button>
-          <button className="border border-gray-300 hover:border-gray-400 text-gray-700 font-medium py-3 px-6 rounded-full transition">
-            Join as a tutor
-          </button>
-        </div> */}
       </div>
       
       {/* Right section - Image and badges */}
       <div className="w-full md:w-1/2 relative">
-  <div className="bg-indigo-100 rounded-full p-0 relative">
+  <div className="bg-indigo-100 rounded-full p-0.5 relative">
     {/* Student image */}
     <div className="rounded-full overflow-hidden aspect-square">
       <img 

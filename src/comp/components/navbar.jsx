@@ -4,8 +4,37 @@ import { ChevronDown } from 'lucide-react';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToSection = (elementId) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+    setIsMenuOpen(false); // Close menu after clicking
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+      <style>
+        {`
+          @keyframes slideDown {
+            from {
+              opacity: 0;
+              transform: translateY(-10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          
+          .menu-animation {
+            animation: slideDown 0.3s ease forwards;
+          }
+        `}
+      </style>
 
       <div className="container mx-auto px-4 py-3 flex items-center justify-center space-x-18">
         {/* Logo */}
@@ -20,32 +49,26 @@ const Navbar = () => {
         {/* Desktop Navigation */} 
         <div className="hidden md:flex items-center space-x-6">
           <div className="relative group">
-            <button className="flex items-center text-gray-800 hover:text-black">
+            <button className="flex items-center text-gray-800 hover:text-black" onClick={() => scrollToSection('features')}>
               Features
               
             </button>
           </div>
           
           <div className="relative group">
-            <button className="flex items-center text-gray-800 hover:text-black">
+            <button className="flex items-center text-gray-800 hover:text-black" onClick={() => scrollToSection('mission')}>
               Mission
               {/* <ChevronDown className="ml-1 w-4 h-4" /> */}
             </button>
           </div>
           
-          <button className="text-gray-800 hover:text-black">
+          <button className="text-gray-800 hover:text-black" onClick={() => scrollToSection('about')}>
             About
           </button>
           
-          <button className="text-gray-800 hover:text-black">
+          <button className="text-gray-800 hover:text-black" onClick={() => scrollToSection('faqs')}>
             FAQs
           </button>
-          
-          {/* <div className="relative group">
-            <button className="flex items-center text-gray-800 hover:text-black"> */}
-              {/* Resources */}
-              {/* <ChevronDown className="ml-1 w-4 h-4" /> */}
-            {/* </button> */}
           {/* </div> */}
         </div>
 
