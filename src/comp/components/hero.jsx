@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
+import Navbar from '../components/navbar'
+import { div } from 'framer-motion/client';
 
 const Hero = () => {
 
@@ -17,6 +19,8 @@ const Hero = () => {
   
 
   return (
+    <div>
+    <Navbar />
     <section id="section1" className="mt-12 min-h-screen bg-white">
 
       <div className="mb-12 bg-gray-500 ">
@@ -137,6 +141,7 @@ const Hero = () => {
           
       </div>
     </section>
+    </div>
   );
 };
 
