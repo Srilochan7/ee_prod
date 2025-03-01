@@ -6,6 +6,8 @@ import Hero from './comp/components/hero'
 import What from './comp/pages/what'
 import Footer from './comp/components/footer'
 import Scroll from './comp/pages/scroll'
+import Mission from './comp/pages/mission'
+import Resources from './comp/pages/resources'
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
       <Scroll/>
       
       <What/>
+      <Mission/>
+      <Resources/>
       <Footer/>
 
     </div>

@@ -38,7 +38,7 @@ const Navbar = () => {
           </button>
           
           <button className="text-gray-800 hover:text-black">
-            Resources
+            FAQs
           </button>
           
           {/* <div className="relative group">
@@ -87,7 +87,7 @@ const Navbar = () => {
               About
             </button>
             <button className="text-gray-800 py-2">
-              Resources
+              FAQs
             </button>
             {/* <button className="flex items-center justify-between text-gray-800 py-2">
               Resources
