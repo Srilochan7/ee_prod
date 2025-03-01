@@ -9,7 +9,8 @@ import Scroll from './comp/pages/scroll'
 import Mission from './comp/pages/mission'
 import Resources from './comp/pages/resources'
 import About from './comp/pages/about'
-
+import { Routes, Route } from "react-router-dom";
+import Home from './comp/pages/home'
 
 function App() {
 
@@ -25,10 +26,16 @@ function App() {
       <About/>
       <Resources/>
       <Footer/>
+      <Routes>
+      <Route path="/home" element={<Home/>} />
+    </Routes>
 
     </div>
   )
 }
 
 export default App
+
+
+
 

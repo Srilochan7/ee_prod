@@ -9,8 +9,13 @@ import {
   
 } from 'lucide-react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 const Hero = () => {
+
+  const navigate = useNavigate();
+  
+
   return (
     <section id="section1" className="mt-12 min-h-screen bg-white">
 
@@ -102,6 +107,7 @@ const Hero = () => {
               </button> */}
               <button
             type="submit"
+            onClick={() => navigate('/home')}
             className="relative inline-flex overflow-hidden rounded-full bg-white px-6 sm:px-8 py-2.5 sm:py-3 
               text-sm sm:text-base font-medium text-black shadow-lg 
               transition-all duration-300 ease-in-out

@@ -1,19 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { ChevronDown } from 'lucide-react';
+import Features from '../pages/features'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (elementId) => {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-    setIsMenuOpen(false); // Close menu after clicking
+    setIsMenuOpen(false); // Close menu first
+    
+    // Use setTimeout to ensure DOM is ready and menu closes first
+    setTimeout(() => {
+      const element = document.getElementById(elementId);
+      if (element) {
+        // Calculate position with offset for fixed navbar
+        const navbarHeight = document.querySelector('nav').offsetHeight;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+        
+        // Scroll to the element
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      } else {
+        console.warn(`Element with id "${elementId}" not found`);
+      }
+    }, 200);
   };
+  
+  // Close mobile menu when window resizes to desktop view
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isMenuOpen]);
+
+  
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
