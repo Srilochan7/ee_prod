@@ -125,10 +125,22 @@ const Home = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <button className="bg-black text-white px-4 py-2 rounded-full flex items-center gap-2 w-full md:w-auto justify-center">
-              <Filter size={16} />
-              <span>Filters</span>
-            </button>
+            <button className="relative inline-flex overflow-hidden rounded-full bg-white px-6 sm:px-8 py-2.5 sm:py-3 
+              text-sm sm:text-base font-medium text-black shadow-lg 
+              transition-all duration-300 ease-in-out
+              hover:text-white
+              disabled:opacity-50 disabled:cursor-not-allowed
+              before:absolute before:inset-0 
+              before:z-0 before:translate-x-[-100%] before:bg-gray-900
+              before:transition-transform before:duration-300 before:ease-in-out
+              hover:before:translate-x-0 text-center justify-center border-1 items-center gap-2"
+>
+  <span className="relative z-10 flex items-center gap-2">
+    <Filter size={16} />
+    Filters
+  </span>
+</button>
+
           </div>
         </div>
       </div>
@@ -152,13 +164,14 @@ const Home = () => {
                   <h3 className="text-lg font-semibold">{mentor.name}</h3>
                   <p className="text-gray-600 text-sm">{mentor.title}</p>
                 </div>
-                <div className="bg-black px-3 py-1 rounded-full text-sm font-bold text-white">
+                <div className="bg-blue-500 px-3 py-1 rounded-full text-sm font-bold text-white">
                   ${mentor.rate}/hr
                 </div>
               </div>
               
               <div className="flex items-center mb-4">
-                <div className="text-black">★★★★★</div>
+              <div className="text-yellow-500 text-lg">★★★★★</div>
+
                 <span className="ml-2 text-sm">
                   {mentor.rating} ({mentor.reviews} reviews)
                 </span>
@@ -178,9 +191,9 @@ const Home = () => {
               <div className="flex justify-between text-gray-600 text-sm mt-4">
                 <div className="flex items-center">
                   <Clock size={16} className="mr-1" />
-                  <span>60 min session</span>
+                  <span >60 min session</span>
                 </div>
-                <div className="flex items-center">
+                <div className="text-green-500 flex items-center">
                   <CheckCircle size={16} className="mr-1" />
                   <span>Available today</span>
                 </div>
