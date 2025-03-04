@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Search, Filter, Clock, CheckCircle, GraduationCap } from 'lucide-react';
+import { Search, Filter, Clock, CheckCircle } from 'lucide-react';
+import NavigationBar from '../components/nav_bar_home';
 
 const Home = () => {
   const mentors = [
     {
       id: 1,
       name: "Aryan Sharma",
-      
       title: "Full Stack developer at Uber",
       rate: 50,
       rating: 5.0,
@@ -79,7 +79,7 @@ const Home = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative py-16 px-4 text-center">
+      <div className="relative py-8 px-4 text-center">
         <style>
           {`
             @keyframes float {
@@ -99,58 +99,57 @@ const Home = () => {
           `}
         </style>
 
-
-
-        <div className="max-w-4xl mx-auto relative p-12">
+        <div className="max-w-4xl mx-auto relative p-6">
           <h1 className="text-5xl sm:text-5xl md:text-5xl font-bold mb-4 leading-tight text-gray-900">
             Connect with Expert Mentors
-            <br />
           </h1>
 
-          <p className="text-xl md:text-xl text-gray-600 mt-4 mb-8">
+          <p className="text-xl md:text-xl text-gray-600 mt-2 mb-4">
             Learn from experienced developers and accelerate
             <br /> your development skills.
           </p>
         </div>
-        <div className="relative max-w-4xl mx-auto px-4 mb-12">
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-          <div className="flex flex-col md:flex-row items-center gap-1">
-            <div className="relative flex-grow w-full">
-              <Search className="absolute left-3 top-3 text-gray-400" size={20} />
-              <input
-                type="text"
-                placeholder="Search mentors by name, skills, or expertise..."
-                className="w-full bg-white text-black pl-10 pr-4 py-3 rounded-full border border-gray-300"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
+        
+        {/* Search Container */}
+        <div className="relative max-w-4xl mx-auto px-4 mb-4">
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+            <div className="flex flex-col md:flex-row items-center gap-1">
+              <div className="relative flex-grow w-full">
+                <Search className="absolute left-3 top-3 text-gray-400" size={20} />
+                <input
+                  type="text"
+                  placeholder="Search mentors by name, skills, or expertise..."
+                  className="w-full bg-white text-black pl-10 pr-4 py-3 rounded-full border border-gray-300"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+              <button className="relative inline-flex overflow-hidden rounded-full bg-white px-6 sm:px-8 py-2.5 sm:py-3 
+                text-sm sm:text-base font-medium text-black shadow-lg 
+                transition-all duration-300 ease-in-out
+                hover:text-white
+                disabled:opacity-50 disabled:cursor-not-allowed
+                before:absolute before:inset-0 
+                before:z-0 before:translate-x-[-100%] before:bg-blue-500
+                before:transition-transform before:duration-300 before:ease-in-out
+                hover:before:translate-x-0 text-center justify-center border-1 items-center gap-2">
+                <span className="relative z-10 flex items-center gap-2">
+                  <Filter size={16} />
+                  Filters
+                </span>
+              </button>
             </div>
-            <button className="relative inline-flex overflow-hidden rounded-full bg-white px-6 sm:px-8 py-2.5 sm:py-3 
-              text-sm sm:text-base font-medium text-black shadow-lg 
-              transition-all duration-300 ease-in-out
-              hover:text-white
-              disabled:opacity-50 disabled:cursor-not-allowed
-              before:absolute before:inset-0 
-              before:z-0 before:translate-x-[-100%] before:bg-gray-900
-              before:transition-transform before:duration-300 before:ease-in-out
-              hover:before:translate-x-0 text-center justify-center border-1 items-center gap-2"
->
-  <span className="relative z-10 flex items-center gap-2">
-    <Filter size={16} />
-    Filters
-  </span>
-</button>
-
           </div>
         </div>
+        
+        {/* Navigation Bar Component */}
+        <div className="relative max-w-6xl mx-auto px-4 mb-4">
+          <NavigationBar />
+        </div>
       </div>
-      </div>
-
-      {/* Search Container */}
-      
       
       {/* Mentors Grid */}
-      <div className="relative max-w-6xl mx-auto p-4 mt-8">
+      <div className="relative max-w-6xl mx-auto p-4 mt-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mentors.map((mentor) => (
             <div key={mentor.id} className="bg-white rounded-lg p-6 shadow-md text-black border border-gray-100 hover:border-gray-300 transition-all">
@@ -170,8 +169,7 @@ const Home = () => {
               </div>
               
               <div className="flex items-center mb-4">
-              <div className="text-yellow-500 text-lg">★★★★★</div>
-
+                <div className="text-yellow-500 text-lg">★★★★★</div>
                 <span className="ml-2 text-sm">
                   {mentor.rating} ({mentor.reviews} reviews)
                 </span>
@@ -191,7 +189,7 @@ const Home = () => {
               <div className="flex justify-between text-gray-600 text-sm mt-4">
                 <div className="flex items-center">
                   <Clock size={16} className="mr-1" />
-                  <span >60 min session</span>
+                  <span>60 min session</span>
                 </div>
                 <div className="text-green-500 flex items-center">
                   <CheckCircle size={16} className="mr-1" />
@@ -202,8 +200,6 @@ const Home = () => {
           ))}
         </div>
       </div>
-
-    
     </div>
   );
 };
