@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Search, Filter, Clock, CheckCircle } from 'lucide-react';
 import NavigationBar from '../components/nav_bar_home';
+import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
+  const navigate = useNavigate();
   const mentors = [
     {
       id: 1,
@@ -200,6 +203,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <button onClick={() => navigate('/mentor-profile')}>mentor profile</button>
     </div>
   );
 };

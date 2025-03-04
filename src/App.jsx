@@ -10,6 +10,7 @@ import Mission from "./comp/pages/mission";
 import Resources from "./comp/pages/resources";
 import About from "./comp/pages/about";
 import Home from "./comp/pages/home";
+import MentorProfile from "./comp/pages/mentor_profile";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           }
         />
         <Route path="/home" element={<Home />} />
+        <Route path="/mentor-profile" element={<MentorProfile/>} />
       </Routes>
     </div>
   );
